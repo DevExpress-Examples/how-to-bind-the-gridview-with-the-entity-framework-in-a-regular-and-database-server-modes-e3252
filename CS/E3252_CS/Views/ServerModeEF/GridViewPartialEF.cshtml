@@ -1,0 +1,14 @@
+﻿@using DevExpress.Web.Mvc;
+@using DevExpress.Web.Mvc.UI;
+
+@Html.DevExpress().GridView(settings => {
+        settings.Name = "grid";
+        settings.CallbackRouteValues = new { Controller = "ServerModeEF", Action = "GridViewPartialEF" };
+
+        settings.KeyFieldName = "ProductID";
+    
+        settings.Columns.Add("ProductID");
+        settings.Columns.Add("ProductName");
+        settings.Columns.Add("UnitPrice");
+        settings.Columns.Add("Discontinued");
+    }).Bind(Model).GetHtml()
